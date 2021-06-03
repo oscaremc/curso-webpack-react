@@ -15,8 +15,8 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
-      '@components': path.resolver(__dirname, 'src/components'),
-      '@styles': path.resolve(__dirname, 'src/styles')
+      '@components': path.resolve(__dirname, 'src/components/'),
+      '@styles': path.resolve(__dirname, 'src/styles/')
     }
   },
   mode: 'production',
@@ -36,7 +36,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.s?[ac]ss$/,
+        test: /\.s[ac]ss$/,
         use: [
           'style-loader',
           'css-loader',
@@ -53,7 +53,7 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name].css'
     }),
-    new CleanWebpackPlugin
+    new CleanWebpackPlugin(),
   ],
   optimization: {
     minimize: true,
